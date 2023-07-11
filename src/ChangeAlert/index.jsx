@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
-import { WithStorageListener } from './WithStorageListerner';
+import { useStorageListener } from './useStorageListener';
 
-const ChangeAlert = ({ show, toggleShow }) => {
+export const ChangeAlert = ({ sincronizeTodos }) => {
+  const { show, toggleShow } = useStorageListener({ sincronizeTodos });
   if (show)
     return (
       <Fragment>
@@ -11,5 +12,3 @@ const ChangeAlert = ({ show, toggleShow }) => {
     );
   return null;
 };
-
-export const ChangeAlertWithStorageListener = WithStorageListener(ChangeAlert);
