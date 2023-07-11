@@ -1,6 +1,6 @@
 import React from 'react';
 import { CheckLogo } from './CheckLogo';
-import { DeleteLogo } from './deleteLogo';
+import { DeleteLogo } from './DeleteLogo';
 import './TodoIcon.css';
 
 const iconTypes = {
