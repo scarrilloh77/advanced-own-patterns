@@ -5,17 +5,25 @@ export const TodoList = ({
   error,
   loading,
   searchedTodos,
+  searchValue,
+  totalTodos,
   onError,
   onLoading,
   onEmptyTodos,
+  onEmptySearchResults,
+  children,
   render,
 }) => {
+  const renderFunc = children || render;
   return (
     <section className="TodoList-container">
       {error && onError()}
       {loading && onLoading()}
-      {!loading && !searchedTodos?.length && onEmptyTodos()}
-      {searchedTodos.map(render)}
+      {!loading && !totalTodos && !searchValue && onEmptyTodos()}
+      {searchValue &&
+        !searchedTodos.length &&
+        onEmptySearchResults(searchValue)}
+      {searchedTodos.map(renderFunc)}
     </section>
   );
 };
